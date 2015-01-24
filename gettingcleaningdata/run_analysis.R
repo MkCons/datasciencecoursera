@@ -101,12 +101,8 @@ names <- names(finalData)
 finalColNames <- sapply(names[3:length(names)], function(name) paste("Mean.Of.",name, sep=""))
 names(finalData) <- c(names[1:2], finalColNames)
 
+## Display the result
+print(finalData)
+
 ## Write the table to a file
 write.table(finalData, "finalData.txt", row.name=FALSE)
-
-
-
-##mean and standard deviation for each measurement.  (Italics mine.)  Each measurement has a set of computed quantities, including "mean" and "std" and "meanFreq" and a bunch more.  See features_info.txt.  (I had to read it a few times!)  Thus, if we are to take the mean and standard deviation (and not the mean frequency), then we need to include "mean" and "std" but not "meanFreq".  In other words, if we include meanFreq, then we're including three items for each measurement, not two.
-## measurements are normalised and so unitlless.
-
-
