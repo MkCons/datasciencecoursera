@@ -20,7 +20,7 @@ xtrain <- mutate(xtrain, Row.Index=1:dim(xtrain)[1])
 
 ## Read subjectTrain, add row index to do the merge later on
 subjectTrain <- tbl_df(read.table("train/subject_train.txt", stringsAsFactors = FALSE))
-names(subjectTrain) <- "Subject.Id"
+names(subjectTrain) <- "Subject.Identifier"
 subjectTrain <- mutate(subjectTrain, Row.Index=1:dim(subjectTrain)[1])
 
 ## Read ytrain, add row index to do the merge later on
@@ -44,7 +44,7 @@ xtest <- select(xtest, selCols, Row.Index)
 
 ## Read subjectTest and add a row index to do the merge later on
 subjectTest <- tbl_df(read.table("test/subject_test.txt", stringsAsFactors = FALSE))
-names(subjectTest) <- "Subject.Id"
+names(subjectTest) <- "Subject.Identifier"
 subjectTest <- mutate(subjectTest, Row.Index=1:dim(subjectTest)[1])
 
 ## Read ytest and add a row index to do the merge later on
@@ -62,7 +62,7 @@ test <- tbl_df(join(xtest, aux, by="Row.Index"))
 test <- mutate(test, Data.Partition="Test")
 
 ## Merge the test and train sets and order them by subject
-data <- arrange(rbind_list(test, train), Subject.Id)
+data <- arrange(rbind_list(test, train), Subject.Identifier)
 
 ## Replace the activity number with its name
 activityLabels<-read.table("activity_labels.txt", stringsAsFactors = FALSE)[2]
@@ -93,7 +93,7 @@ gsub(pattern="^t", replacement="Time.Domain.")
 ## Compute the average of every variable by activity and subject
 finalData <- data %>%
   select(-Row.Index, -Data.Partition) %>%
-  group_by(Activity, Subject.Id) %>%
+  group_by(Activity, Subject.Identifier) %>%
   summarise_each(funs(mean))
 
 ## Give this new data set new variable names by adding "Mean.Of."
