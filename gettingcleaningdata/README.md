@@ -36,6 +36,8 @@ According to the course's website we should create one R script called run_analy
 - From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 ## Script explanation
+_Note: for the script to run we need to setwd() in R so that we are inside the UCI HAR Dataset folder._ 
+
 In this section we will go over the different steps in run_analysis.R to achieve the required goals:
 
 - Before manipulating the data we need to load the plyr and dplyr packages.
