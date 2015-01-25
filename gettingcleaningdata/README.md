@@ -65,3 +65,6 @@ At this point we have the data set with clear and meaningful names and the activ
 - Create a new tbl by dropping the Row.Index and the Data.Partition variables, we are not going to need them.
 - We need to compute the mean of all the variables for every activity and every subject. To do that we indicate the tbl to group_by _Activity_ and _Subject.Identifier_. Call _summarise_each_ to compute the mean on every column.
 - Finally we need to rename the column variables, since they now contain the mean of the original variables. By calling _sapply_ we add "Mean.Of." to the current column name.
+
+# For further information
+For further information on the original data check the original README file in https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip

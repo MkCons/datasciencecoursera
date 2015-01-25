@@ -76,10 +76,11 @@ names(data) <- c(features[selCols], names(data)[(dataCols - 3):dataCols])
 names(data) <- names(data) %>%
 gsub(pattern="BodyBody", replacement="Body") %>%
 gsub(pattern="Body", replacement="Body.") %>%
-gsub(pattern="Acc", replacement="Accelerometer.") %>%
-gsub(pattern="Gyro", replacement="Gyroscope.") %>%
+gsub(pattern="Acc", replacement="Acceleration.") %>%
+gsub(pattern="Gyro", replacement="Angular.Velocity.") %>%
 gsub(pattern="Mag", replacement="Magnitude.") %>%
 gsub(pattern="Jerk", replacement="Jerk.") %>%
+gsub(pattern="Gravity", replacement="Gravity.") %>%  
 gsub(pattern="-X", replacement="X.Axis") %>%
 gsub(pattern="-Y", replacement="Y.Axis") %>%
 gsub(pattern="-Z", replacement="Z.Axis") %>%
